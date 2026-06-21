@@ -1,0 +1,7 @@
+external_data_path: data/external/records.csv
+redis:
+  host: localhost
+  port: 6379
+  db: 0
+  connect_timeout: 0.5
+  socket_timeout: 1

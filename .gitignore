@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Data
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Vector store
+chroma_db/
+
+# Session data
+data/sessions/
+data/memory.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test results
+rag_evaluation_results.json
+
+# Downloaded models
+*.pth
+*.pt
+*.onnx
+
+# Trae AI
+.trae/
+
+# MD5 cache
+md5.txt
+
+# Temporary files
+*.tmp
+*.bak
+*.cache

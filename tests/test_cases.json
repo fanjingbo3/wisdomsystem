@@ -1,0 +1,155 @@
+[
+  {
+    "id": "TC001",
+    "user_query": "咋充电",
+    "relevant_doc_ids": [
+      "chunk_0307",
+      "chunk_0140",
+      "chunk_0293"
+    ],
+    "expected_keywords": [
+      "充电",
+      "充电座",
+      "对接"
+    ],
+    "note": "口语化简短提问，需要Query改写才能召回"
+  },
+  {
+    "id": "TC002",
+    "user_query": "那个禁区怎么设",
+    "relevant_doc_ids": [
+      "chunk_0146",
+      "chunk_0058",
+      "chunk_0057"
+    ],
+    "expected_keywords": [
+      "禁区",
+      "虚拟墙",
+      "APP设置"
+    ],
+    "note": "指代词'那个'需要LLM理解上下文"
+  },
+  {
+    "id": "TC003",
+    "user_query": "会缠头发不",
+    "relevant_doc_ids": [
+      "chunk_0049",
+      "chunk_0041",
+      "chunk_0314"
+    ],
+    "expected_keywords": [
+      "毛发",
+      "缠绕",
+      "主刷"
+    ],
+    "note": "需要理解'头发'和'毛发'的关系"
+  },
+  {
+    "id": "TC004",
+    "user_query": "说明书上那个APP咋连wifi",
+    "relevant_doc_ids": [
+      "chunk_0322",
+      "chunk_0136",
+      "chunk_0213"
+    ],
+    "expected_keywords": [
+      "APP",
+      "连接",
+      "WiFi",
+      "配网"
+    ],
+    "note": "三个概念混合，需要拆解"
+  },
+  {
+    "id": "TC005",
+    "user_query": "拖地水箱多大",
+    "relevant_doc_ids": [
+      "chunk_0255",
+      "chunk_0087",
+      "chunk_0007"
+    ],
+    "expected_keywords": [
+      "水箱",
+      "容量",
+      "拖地"
+    ],
+    "note": "'拖地'是功能简称"
+  },
+  {
+    "id": "TC006",
+    "user_query": "声音太吵了",
+    "relevant_doc_ids": [
+      "chunk_0062",
+      "chunk_0076",
+      "chunk_0326"
+    ],
+    "expected_keywords": [
+      "噪音",
+      "静音模式",
+      "降噪"
+    ],
+    "note": "抱怨式提问，需要转换为解决方案"
+  },
+  {
+    "id": "TC007",
+    "user_query": "第一次用咋弄",
+    "relevant_doc_ids": [
+      "chunk_0227",
+      "chunk_0332",
+      "chunk_0034"
+    ],
+    "expected_keywords": [
+      "首次使用",
+      "开机",
+      "充电",
+      "联网"
+    ],
+    "note": "新手问题，需要综合多个知识点"
+  },
+  {
+    "id": "TC008",
+    "user_query": "爬地毯行不",
+    "relevant_doc_ids": [
+      "chunk_0021",
+      "chunk_0096",
+      "chunk_0152"
+    ],
+    "expected_keywords": [
+      "地毯",
+      "越障",
+      "门槛"
+    ],
+    "note": "'爬'需要理解为'越过障碍'"
+  },
+  {
+    "id": "TC009",
+    "user_query": "电池能用几年",
+    "relevant_doc_ids": [
+      "chunk_0307",
+      "chunk_0266",
+      "chunk_0140"
+    ],
+    "expected_keywords": [
+      "电池",
+      "寿命",
+      "更换"
+    ],
+    "note": "简短提问，需要语义补全"
+  },
+  {
+    "id": "TC010",
+    "user_query": "那个滤网怎么洗",
+    "relevant_doc_ids": [
+      "chunk_0045",
+      "chunk_0011",
+      "chunk_0270"
+    ],
+    "expected_keywords": [
+      "滤网",
+      "清洗",
+      "水洗",
+      "晾干"
+    ],
+    "note": "指代词+简短提问"
+  }
+]

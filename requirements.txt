@@ -1,0 +1,36 @@
+# ==============================================
+# LangChain ReAct Agent · 智能客服
+# 安装：pip install -r requirements.txt
+# ==============================================
+
+# LangChain 核心
+langchain==0.3.7
+langchain-core==0.3.18
+langchain-community==0.3.7
+
+# 向量数据库
+langchain-chroma==0.1.4
+chromadb==0.5.15
+langchain-text-splitters==0.3.2
+
+# Agent 编排
+langgraph==0.2.50
+
+# 前端
+streamlit==1.40.1
+
+# 文档处理
+pypdf==5.1.0
+pyyaml==6.0.2
+
+# BM25 检索
+rank_bm25==0.2.2
+
+# 阿里云百炼模型
+dashscope==1.20.14
+
+# 环境变量
+python-dotenv==1.0.1
+
+# Redis 缓存
+redis==5.1.1
