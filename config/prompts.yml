@@ -1,3 +1,12 @@
 main_prompt_path : prompts/main_prompt.txt
 rag_summarize_prompt_path : prompts/rag_summarize.txt
 report_prompt_path : prompts/report_prompt.txt
+supervisor_prompt_path : prompts/supervisor_prompt.txt
+knowledge_agent_prompt_path : prompts/knowledge_agent_prompt.txt
+report_agent_prompt_path : prompts/report_agent_prompt.txt
+general_agent_prompt_path : prompts/general_agent_prompt.txt
+# Fallback 兜底 prompt（硬编码流程版，ReAct 失败时降级使用）
+supervisor_fallback_path : prompts/fallback/supervisor_prompt.txt
+knowledge_agent_fallback_path : prompts/fallback/knowledge_agent_prompt.txt
+report_agent_fallback_path : prompts/fallback/report_agent_prompt.txt
+general_agent_fallback_path : prompts/fallback/general_agent_prompt.txt

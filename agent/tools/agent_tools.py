@@ -73,7 +73,11 @@ external_data = {}
 @tool
 def rag_summarize(query: str) -> str:
     """从向量存储中检索参考资料"""
-    return _get_rag_service().rag_summarize(query)
+    rag_service = _get_rag_service()
+    if rag_service is None:
+        logger.error("[rag_summarize] RAG服务未初始化，请检查API Key配置")
+        return "RAG服务未初始化，请检查API Key配置或网络连接"
+    return rag_service.rag_summarize(query)
 
 
 @tool

@@ -100,16 +100,20 @@ if prompt:
     )
 
     for chunk in res_stream:
-        if chunk.startswith("\n\U0001f527 [调用工具"):
+        if chunk.startswith("\n\U0001f91d [派发给:"):
+            thoughts_html += f"<div style='color: #9C27B0; margin: 5px 0;'>🤝 {chunk.replace(chr(10), '<br>')}</div>"
+        elif chunk.startswith("\n\U0001f527 [调用工具"):
             thoughts_html += f"<div style='color: #FF9800; margin: 5px 0;'>🔧 {chunk.replace(chr(10), '<br>')}</div>"
         elif chunk.startswith("\n\u2705 [工具返回"):
             thoughts_html += f"<div style='color: #2196F3; margin: 5px 0;'>✅ {chunk.replace(chr(10), '<br>')}</div>"
+        elif chunk.startswith("\n\u2705 [") and "专家返回" in chunk:
+            thoughts_html += f"<div style='color: #009688; margin: 5px 0;'>✅ {chunk.replace(chr(10), '<br>')}</div>"
         else:
             full_response += chunk
-        
+
         if thoughts_html:
             thoughts_placeholder.markdown(thoughts_html, unsafe_allow_html=True)
-        
+
         if full_response:
             response_placeholder.write(full_response)
 

@@ -37,6 +37,11 @@ class ChatModelFactory(BaseModelFactory):
         return ChatTongyi(model=rag_conf["chat_model_name"])
 
 
+class LightChatModelFactory(BaseModelFactory):
+    def generator(self) -> Optional[BaseChatModel]:
+        return ChatTongyi(model=rag_conf.get("light_chat_model_name", "qwen-turbo"))
+
+
 class EmbeddingsFactory(BaseModelFactory):
     def generator(self) -> Optional[Embeddings | BaseChatModel]:
         return DashScopeEmbeddings(model=rag_conf["embedding_model_name"])
@@ -45,12 +50,19 @@ class EmbeddingsFactory(BaseModelFactory):
 # 懒加载：首次调用时才真正初始化模型，避免启动时35s+的等待
 chat_model = _LazyModel(ChatModelFactory().generator)
 
+light_chat_model = _LazyModel(LightChatModelFactory().generator)
+
 embed_model = _LazyModel(EmbeddingsFactory().generator)
 
 
 def get_chat_model():
     """获取聊天模型实例（懒加载单例）"""
     return chat_model.materialize()
+
+
+def get_light_chat_model():
+    """获取轻量聊天模型实例（qwen-turbo，用于路由分类和简单问题直接回答）"""
+    return light_chat_model.materialize()
 
 
 def get_embed_model():

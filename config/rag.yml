@@ -1,2 +1,3 @@
-chat_model_name: qwen-max
+chat_model_name: qwen-flash
+light_chat_model_name: qwen-turbo
 embedding_model_name: text-embedding-v2

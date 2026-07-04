@@ -135,6 +135,8 @@ class ExperienceMemory:
         print(f"已将经验记录存入RAG: {content[:50]}...")
 
     def query_experience(self, query: str) -> str:
+        if self.rag_service is None:
+            return ""
         if hasattr(self.rag_service, 'rag_summarize'):
             return self.rag_service.rag_summarize(query)
         return ""
