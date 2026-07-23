@@ -15,25 +15,17 @@ ENV/
 *.swp
 *.swo
 
-# Data
-*.db
-*.sqlite
-*.sqlite3
-
-# Logs
-*.log
-
 # Environment
 .env
 .env.local
 .env.*.local
 
-# Vector store
-chroma_db/
-
-# Session data
+# Session data (聊天记录 - 不上传)
 data/sessions/
 data/memory.db
+
+# Logs
+*.log
 
 # OS
 .DS_Store

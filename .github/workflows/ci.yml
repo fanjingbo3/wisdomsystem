@@ -1,0 +1,68 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check for exposed secrets
+        uses: trufflesecurity/trufflehog@latest
+        with:
+          path: .
+          base: ''
+          head: HEAD
+          extra_args: '--fail-on-findings'
+
+      - name: Check .gitignore coverage
+        run: |
+          echo "=== Checking for sensitive files ==="
+          if [ -f .env ]; then echo "ERROR: .env file exists!"; exit 1; fi
+          echo "OK: No sensitive files found"
+
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install flake8 black
+          
+      - name: Lint with flake8
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        
+      - name: Check formatting with black
+        run: black --check .
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt --quiet
+          
+      - name: Run integration tests
+        run: python test_integration.py
