@@ -1,4 +1,4 @@
-﻿﻿import re
+import re
 from langchain_core.documents import Document
 
 
