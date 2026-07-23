@@ -203,6 +203,7 @@ class ReactAgent:
             stream_mode="messages",
             subgraphs=True,
             recursion_limit=10,
+            configurable={"thread_id": session_id},
         ):
             if not isinstance(chunk_data, tuple) or len(chunk_data) != 2:
                 continue

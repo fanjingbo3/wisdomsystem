@@ -1,8 +1,11 @@
 import streamlit as st
 import threading
 from datetime import datetime
+from dotenv import load_dotenv
 from database.redis_cache import RedisCache
 from memory.session_manager import SessionManager
+
+load_dotenv()
 
 st.set_page_config(page_title="智扫通 · 智能客服", page_icon="🤖")
 st.title("🤖 智扫通机器人智能客服")

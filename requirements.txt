@@ -16,6 +16,10 @@ langchain-text-splitters==1.1.2
 
 # Agent 编排
 langgraph==1.2.7
+langgraph-cli[inmemory]==0.0.37
+
+# LangSmith 调试追踪
+langsmith>=0.3.45
 
 # 前端
 streamlit==1.45.1

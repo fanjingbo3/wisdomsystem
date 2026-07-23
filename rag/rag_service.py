@@ -12,6 +12,7 @@ from langchain_core.prompts import PromptTemplate
 from model.factory import chat_model
 from database.redis_cache import RedisCache
 from utils.cache import query_cache
+from utils.timer import timed_with_details
 import hashlib
 
 
@@ -112,6 +113,7 @@ class RagSummarizeService:
         
         return rrf_fusion(all_docs, [], k=60, top_n=20)
 
+    @timed_with_details
     def retriever_docs(self, query: str) -> list[Document]:
         """完整的检索流程：多路改写 → 多路召回 → Rerank精排"""
         # 1. 多路改写并过滤（相似度≥0.8）
@@ -133,6 +135,7 @@ class RagSummarizeService:
         
         return reranked_docs
 
+    @timed_with_details
     def rag_summarize(self, query: str) -> str:
         cache_key = f"rag:{hashlib.md5(query.encode()).hexdigest()}"
 
