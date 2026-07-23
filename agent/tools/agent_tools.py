@@ -56,7 +56,6 @@ def _prewarm_rag_service():
         _rag_ready.set()
 
 def _get_rag_service():
-    global _rag_service
     if _rag_service is None:
         if not _rag_initializing:
             threading.Thread(target=_prewarm_rag_service, daemon=True).start()
